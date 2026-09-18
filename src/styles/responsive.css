@@ -1,0 +1,469 @@
+/* ==========================================================================
+   AlumniConnect - Responsive & Mobile Layouts
+   ========================================================================== */
+
+/* Mobile Bottom Navigation Bar */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  z-index: 900;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-items {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 4px 8px;
+  transition: var(--transition);
+}
+
+.mobile-nav-link.active, .mobile-nav-link:hover {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.mobile-nav-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Wide Laptops & Standard Monitors (< 1360px) */
+@media (max-width: 1360px) {
+  .nav-brand-tagline {
+    display: none;
+  }
+  .search-trigger-btn .kbd-shortcut {
+    display: none;
+  }
+  .nav-link-extended {
+    display: none !important;
+  }
+  .nav-more-menu-mobile-items {
+    display: block;
+  }
+  .nav-link {
+    padding: 0.38rem 0.55rem;
+    font-size: 0.84rem;
+  }
+}
+
+/* Medium Desktop / Small Laptops (< 1150px) */
+@media (max-width: 1150px) {
+  .search-trigger-btn .search-text {
+    display: none;
+  }
+  .search-trigger-btn {
+    padding: 0.45rem;
+    border-radius: var(--radius-md);
+  }
+  .persona-pill .persona-badge {
+    display: none;
+  }
+  .nav-link {
+    padding: 0.35rem 0.45rem;
+    font-size: 0.825rem;
+  }
+}
+
+/* Tablet & Smaller Screens (< 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-social-proof {
+    justify-content: center;
+  }
+
+  .pass-card-container {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2rem;
+  }
+
+  .stat-item:nth-child(3)::after {
+    display: none;
+  }
+
+  .chat-window {
+    grid-template-columns: 260px 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets & Below (< 992px) */
+@media (max-width: 992px) {
+  body {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)); /* space for mobile bottom nav */
+  }
+
+  .mobile-bottom-nav {
+    display: block;
+    height: calc(60px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .nav-desktop {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .mobile-menu-trigger {
+    display: flex !important;
+  }
+}
+
+/* Mobile Screens (< 768px) */
+@media (max-width: 768px) {
+  /* Hide desktop Sign In and Join CTA buttons from top header on mobile (available in mobile drawer) */
+  .nav-signin-btn,
+  #navJoinBtn {
+    display: none !important;
+  }
+
+  .navbar-inner {
+    height: 3.5rem;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  .nav-actions {
+    gap: 0.35rem !important;
+  }
+
+  /* iOS Input font size >= 16px to prevent viewport auto-zoom shift */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  .hero-title {
+    font-size: 2.15rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-item::after {
+    display: none !important;
+  }
+
+  .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-window {
+    grid-template-columns: 1fr;
+    height: 580px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .wizard-steps {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .wizard-step-item .step-title {
+    display: none;
+  }
+
+  .modal-container {
+    padding: 1rem;
+    max-height: 90vh;
+    width: calc(100vw - 1.5rem);
+    max-width: calc(100vw - 1.5rem);
+  }
+
+  .settings-nav-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .settings-tab-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .job-card-premium {
+    padding: 1.25rem;
+  }
+
+  .chapter-hero-card .chapter-banner-wrap {
+    height: 150px;
+  }
+
+  .setting-item-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .setting-item-row .toggle-switch {
+    align-self: flex-end;
+  }
+}
+
+/* Small Mobile Screens (< 640px) */
+@media (max-width: 640px) {
+  .container,
+  .container-sm {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .navbar .container,
+  .navbar-container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .navbar-inner {
+    height: 3.5rem;
+    gap: 0.35rem;
+  }
+
+  .nav-brand-title {
+    font-size: 1.1rem;
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .persona-pill {
+    padding: 0.25rem 0.45rem;
+    gap: 0.25rem;
+  }
+
+  .persona-badge {
+    display: none;
+  }
+
+  .floating-badge {
+    display: none !important;
+  }
+
+  .search-trigger-btn {
+    padding: 0.4rem !important;
+    width: 36px !important;
+    height: 36px !important;
+    justify-content: center !important;
+  }
+
+  .search-trigger-btn .search-text,
+  .search-trigger-btn .kbd-shortcut {
+    display: none !important;
+  }
+
+  .btn-icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .nav-actions {
+    gap: 0.3rem !important;
+  }
+}
+
+/* Extra-Small Mobile Screens (< 480px, including iPhone 15 at 393px) */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 2.5rem 0 2rem !important;
+  }
+
+  .hero-title {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .pass-card-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .pass-card {
+    padding: 1.25rem 1rem !important;
+    width: 100% !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .stat-item:last-child {
+    grid-column: span 2;
+  }
+
+  .stat-item {
+    padding: 1rem 0.5rem !important;
+  }
+
+  .stat-item .stat-number {
+    font-size: 1.75rem !important;
+  }
+
+  .stat-item .stat-label {
+    font-size: 0.72rem !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+
+  .feature-card {
+    padding: 1.25rem !important;
+  }
+}
+
+/* Extra-Compact Mobile (< 380px) */
+@media (max-width: 380px) {
+  .container,
+  .container-sm {
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
+  }
+
+  .navbar .container,
+  .navbar-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .nav-brand-title {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.45rem 0.75rem !important;
+    font-size: 0.825rem !important;
+  }
+
+  .hero-title {
+    font-size: 1.65rem !important;
+  }
+}
+
+/* Mobile App Safe Areas & Native Polish (iPhone 15, Dynamic Island, Home Indicator) */
+html, body {
+  overscroll-behavior-y: contain;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
+body {
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: calc(70px + env(safe-area-inset-bottom, 0));
+}
+
+.navbar {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+.mobile-bottom-nav {
+  height: calc(60px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.mobile-drawer {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 0.5rem);
+  padding-bottom: calc(env(safe-area-inset-bottom, 16px) + 1rem);
+}
+
+/* Hide PWA Mobile Install Banner permanently per user instruction */
+.pwa-install-banner {
+  display: none !important;
+}
+
+

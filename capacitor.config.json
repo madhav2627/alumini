@@ -1,0 +1,14 @@
+{
+  "appId": "com.alumniconnect.app",
+  "appName": "AlumniConnect",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true
+  }
+}
